@@ -71,19 +71,19 @@ export default function Home() {
             Teknolojiler
           </h3>
           <div className="tech-grid">
-            <Image src="/icons/react.svg" alt="React" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/nextjs.svg" alt="Next.js" width={48} height={48} className="dark:invert hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/typescript.svg" alt="TypeScript" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/tailwind.svg" alt="Tailwind CSS" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/python.svg" alt="Python" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/git.svg" alt="Git" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/github.svg" alt="GitHub" width={48} height={48} className="dark:invert hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/html.svg" alt="HTML5" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/css.svg" alt="CSS3" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/javascript.svg" alt="JavaScript" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/csharp.svg" alt="C#" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/dotnet.svg" alt="ASP.NET Core" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
-            <Image src="/icons/django.svg" alt="Django" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/react.svg`} alt="React" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/nextjs.svg`} alt="Next.js" width={48} height={48} className="dark:invert hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/typescript.svg`} alt="TypeScript" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/tailwind.svg`} alt="Tailwind CSS" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/python.svg`} alt="Python" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/git.svg`} alt="Git" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/github.svg`} alt="GitHub" width={48} height={48} className="dark:invert hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/html.svg`} alt="HTML5" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/css.svg`} alt="CSS3" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/javascript.svg`} alt="JavaScript" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/csharp.svg`} alt="C#" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/dotnet.svg`} alt="ASP.NET Core" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
+            <Image src={`${process.env.NODE_ENV === 'production' ? '/muhammed-sayar' : ''}/icons/django.svg`} alt="Django" width={48} height={48} className="hover:scale-125 transition-transform duration-300" />
           </div>
         </div>
 
