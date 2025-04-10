@@ -25,7 +25,7 @@ function App() {
               <a href="#experience" className="text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105">İş Deneyimi</a>
               <a href="#education" className="text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105">Eğitim</a>
               <a href="#technologies" className="text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105">Teknolojiler</a>
-              <Link to="/useful-links" className="text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105">Faydalı Linkler</Link>
+              {/* <Link to="/useful-links" className="text-gray-300 hover:text-white transition-colors duration-200 hover:scale-105">Faydalı Linkler</Link> */}
             </div>
           </nav>
         </div>
