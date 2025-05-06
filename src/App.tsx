@@ -267,7 +267,7 @@ function App() {
                 <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">Hakkımda</a></li>
                 <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Yetenekler</a></li>
                 <li><a href="#experience" className="text-gray-400 hover:text-white transition-colors">Deneyim</a></li>
-                <li><a href="#useful-links" className="text-gray-400 hover:text-white transition-colors">Faydalı Linkler</a></li>
+                <li><a href="#useful-links" className="text-gray-400 hover:text-white transition-colors">Linkler</a></li>
               </ul>
             </div>
             <div>
