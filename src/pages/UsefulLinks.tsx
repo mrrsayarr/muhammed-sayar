@@ -2,21 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { usefulLinks } from '../data/usefulLinks';
 import { Link } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function UsefulLinks() {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
-      <header className="backdrop-blur-md bg-gray-800/75 shadow-lg fixed w-full top-0 z-50 border-b border-gray-700/50 m-2 rounded-lg">
-        <div className="max-w-7xl mx-auto py-4 px-6 rounded-lg">
-          <nav className="flex justify-between items-center">
-            <Link to="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
-              Ana Sayfa
-            </Link>
-          </nav>
+      <main className="max-w-7xl mx-auto py-12 px-4">
+        <div className="mb-6">
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-xl border border-gray-700/60 transition-all duration-200"
+          >
+            <FaArrowLeft className="w-4 h-4 text-blue-400" />
+            Ana Sayfa'ya Dön
+          </Link>
         </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto py-12 px-4 mt-20">
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
