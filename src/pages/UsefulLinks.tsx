@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { usefulLinks } from '../data/usefulLinks';
+import { usefulLinks } from '../data/portfolioData';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 
