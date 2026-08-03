@@ -1,37 +1,31 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { 
-  FaGithub, 
-  FaLinkedin, 
-  FaMapMarkerAlt, 
-  FaCalendarAlt, 
-  FaInstagram, 
+import {
+  FaGithub,
+  FaLinkedin,
+  FaMapMarkerAlt,
+  FaInstagram,
   FaEnvelope,
   FaCheckCircle,
   FaGraduationCap,
-  FaServer,
   FaShieldAlt,
-  FaNetworkWired,
-  FaBriefcase,
-  FaExternalLinkAlt,
-  FaCode
+  FaExternalLinkAlt
 } from 'react-icons/fa'
-import { 
-  SiReact, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiPython, 
-  SiJavascript, 
-  SiHtml5, 
-  SiCss3, 
-  SiMicrosoftsqlserver, 
-  SiCsharp, 
-  SiDotnet, 
-  SiGit, 
-  SiGithub, 
+import {
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiPython,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiMicrosoftsqlserver,
+  SiCsharp,
+  SiDotnet,
+  SiGit,
+  SiGithub,
   SiJupyter,
-  SiLinux,
-  SiDocker
+  SiLinux
 } from 'react-icons/si'
 import { Link } from 'react-router-dom'
 
@@ -47,7 +41,7 @@ function App() {
     <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-blue-500 selection:text-white">
       {/* Container */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-10">
-        
+
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: 15 }}
@@ -91,14 +85,14 @@ function App() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 text-sm flex items-center gap-2"
               >
                 <FaEnvelope className="w-4 h-4" />
                 İletişime Geç
               </a>
-              <a 
+              <a
                 href="https://www.linkedin.com/in/muhammed-sayar/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,7 +101,7 @@ function App() {
                 <FaLinkedin className="w-4 h-4 text-blue-400" />
                 LinkedIn Profilim
               </a>
-              <Link 
+              <Link
                 to="/useful-links"
                 className="bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-xl border border-gray-700/80 transition-all duration-200 text-sm flex items-center gap-2"
               >
@@ -119,7 +113,7 @@ function App() {
         </motion.section>
 
         {/* About Section */}
-        <motion.section 
+        <motion.section
           id="about"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -130,7 +124,7 @@ function App() {
             <span className="w-2 h-6 bg-blue-500 rounded-full" />
             Hakkımda
           </h2>
-          
+
           <div className="space-y-4 text-gray-300 text-base leading-relaxed">
             <p>
               Amasya Üniversitesi Bilgisayar Mühendisliği bölümünden mezun oldum. Öğrenim hayatım boyunca ve sonrasında GNU/Linux sistemler, Siber Güvenlik, Ağ Yapılandırmaları ve Yazılım Geliştirme konularında kendimi sürekli yeniledim.
@@ -185,7 +179,7 @@ function App() {
             <span className="w-2 h-6 bg-indigo-500 rounded-full" />
             Teknolojiler & Araçlar
           </h2>
-          
+
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3.5">
             <div className="group flex flex-col items-center justify-center p-3 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-blue-500/50 hover:bg-gray-800/50 transition-all duration-200">
               <SiLinux className="w-8 h-8 text-yellow-400 group-hover:scale-110 transition-transform" />
@@ -271,7 +265,7 @@ function App() {
             <span className="w-2 h-6 bg-cyan-500 rounded-full" />
             Yetenekler & Odak Alanları
           </h2>
-          
+
           <div className="flex flex-wrap gap-2.5">
             <span className="px-3.5 py-1.5 bg-gray-950 text-gray-200 rounded-xl border border-gray-800 text-sm font-medium hover:border-blue-500/40 hover:text-blue-400 transition-all">GNU/Linux Sistem Yönetimi</span>
             <span className="px-3.5 py-1.5 bg-gray-950 text-gray-200 rounded-xl border border-gray-800 text-sm font-medium hover:border-blue-500/40 hover:text-blue-400 transition-all">Siber Güvenlik Temelleri</span>
@@ -286,7 +280,7 @@ function App() {
         </motion.section>
 
         {/* Experience Section */}
-        <motion.section 
+        <motion.section
           id="experience"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -297,7 +291,7 @@ function App() {
             <span className="w-2 h-6 bg-emerald-500 rounded-full" />
             İş & Staj Deneyimleri
           </h2>
-          
+
           <div className="space-y-6">
             <div className="p-5 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-gray-700/80 transition-all">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
@@ -337,7 +331,7 @@ function App() {
             <span className="w-2 h-6 bg-purple-500 rounded-full" />
             Eğitim
           </h2>
-          
+
           <div className="space-y-6">
             <div className="p-5 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-gray-700/80 transition-all">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
@@ -364,8 +358,8 @@ function App() {
         {/* Contact & Social Links */}
         <section id="contact" className="pt-4">
           <div className="flex justify-center items-center gap-4">
-            <a 
-              href="https://github.com/mrrsayarr" 
+            <a
+              href="https://github.com/mrrsayarr"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105"
@@ -373,8 +367,8 @@ function App() {
             >
               <FaGithub className="w-6 h-6" />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/muhammed-sayar/" 
+            <a
+              href="https://www.linkedin.com/in/muhammed-sayar/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105"
@@ -382,8 +376,8 @@ function App() {
             >
               <FaLinkedin className="w-6 h-6 text-blue-400" />
             </a>
-            <a 
-              href="https://instagram.com/mrrsayarr" 
+            <a
+              href="https://instagram.com/mrrsayarr"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105"
@@ -391,7 +385,7 @@ function App() {
             >
               <FaInstagram className="w-6 h-6 text-pink-400" />
             </a>
-            <a 
+            <a
               href={`mailto:${email}`}
               className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105"
               aria-label="Email"
@@ -408,9 +402,9 @@ function App() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>© {new Date().getFullYear()} Muhammed Sayar. Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-3">
-            <a 
-              href="https://github.com/mrrsayarr" 
-              target="_blank" 
+            <a
+              href="https://github.com/mrrsayarr"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors flex items-center gap-1.5"
             >
@@ -418,7 +412,7 @@ function App() {
               mrrsayarr
             </a>
             <span className="text-gray-700">•</span>
-            <img 
+            <img
               src="https://visitor-badge.laobi.icu/badge?page_id=mrrsayarr.portfolio"
               alt="Ziyaretçi Sayısı"
               className="dark:invert opacity-80"
