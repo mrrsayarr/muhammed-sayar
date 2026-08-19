@@ -1,5 +1,5 @@
 // ============================================================
-//  portfolioData.ts — Tüm site verilerini buradan yönetin
+//  portfolioData.ts — Tüm site verilerini burada
 // ============================================================
 
 // ─── Kişisel Bilgiler ───────────────────────────────────────
@@ -18,8 +18,9 @@ export const personal = {
 
 // ─── Hakkımda Metni ─────────────────────────────────────────
 export const about: string[] = [
-  "Amasya Üniversitesi Bilgisayar Mühendisliği bölümünden mezun oldum. Öğrenim hayatım boyunca ve sonrasında GNU/Linux sistemler, Siber Güvenlik, Ağ Yapılandırmaları ve Yazılım Geliştirme konularında kendimi sürekli yeniledim.",
-  "C#, ASP.NET MVC ve Python ile geliştirme deneyimimin yanı sıra sistem güvenliği, ağ altyapıları ve sunucu yönetimi alanlarında pratik tecrübelere sahibim. Askerlik görevimi tamamlamış olup, analitik düşünce yapımla ekibinize değer katacak bir pozisyonda çalışmayı hedefliyorum.",
+  "Bilgisayar Mühendisliği yeni mezunuyum. Kariyerime, sahip olduğum teknik bilgileri gerçek projelerde geliştirerek ve yeni teknolojileri sürekli öğrenerek ilerlemeyi hedefliyorum.",
+  "Yaptığım işi yalnızca tamamlamak yerine, en doğru ve verimli şekilde gerçekleştirmeye önem veriyorum. Güncel teknolojileri takip ederek uygun oldukları noktalarda çalışmalarına dahil etmeyi ve her projede kendimi bir adım daha geliştirmeyi amaçlıyorum.",
+  "Öğrenmeye açık, çalışkan ve sorumluluk almaktan çekinmeyen biriyim. Uzun vadede hem kendime hem de çalıştığım ekibe değer katan bir mühendis olmayı hedefliyorum.",
 ]
 
 // ─── Yetenekler & Odak Alanları ─────────────────────────────
@@ -77,7 +78,7 @@ export const educations: Education[] = [
   },
   {
     school: "Hüseyin Kalkavan Lisesi",
-    period: "2014 - 2019",
+    period: "2014 - 2019 • Mezun",
     department: "Sağlık Meslek Lisesi",
     color: "gray",
   },
@@ -106,88 +107,7 @@ export const technologies: Technology[] = [
   { name: "HTML5", iconKey: "html5", colorClass: "text-orange-500" },
   { name: "CSS3", iconKey: "css3", colorClass: "text-blue-500" },
   { name: "Jupyter", iconKey: "jupyter", colorClass: "text-orange-600" },
+  { name: "Node.js", iconKey: "nodejs", colorClass: "text-green-400" }
 ]
 
-// ─── Faydalı Linkler ─────────────────────────────────────────
-export type LinkCategory = "security" | "development" | "learning" | "tools"
 
-export interface UsefulLink {
-  title: string
-  description: string
-  url: string
-  category: LinkCategory
-  icon: string
-}
-
-export const usefulLinks: UsefulLink[] = [
-  {
-    title: "HackTheBox",
-    description: "Siber güvenlik becerilerini geliştirmek için pratik platformu",
-    url: "https://www.hackthebox.com",
-    category: "security",
-    icon: "🛡️",
-  },
-  {
-    title: "TryHackMe",
-    description: "Siber güvenlik eğitimi ve CTF platformu",
-    url: "https://tryhackme.com",
-    category: "security",
-    icon: "🎯",
-  },
-  {
-    title: "React Docs",
-    description: "React resmi dokümantasyonu",
-    url: "https://react.dev",
-    category: "development",
-    icon: "⚛️",
-  },
-  {
-    title: "MDN Web Docs",
-    description: "Web teknolojileri için kapsamlı dokümantasyon",
-    url: "https://developer.mozilla.org",
-    category: "development",
-    icon: "📖",
-  },
-  {
-    title: "PortSwigger Web Security Academy",
-    description: "Web güvenliği öğrenmek için ücretsiz eğitim platformu",
-    url: "https://portswigger.net/web-security",
-    category: "security",
-    icon: "🔐",
-  },
-  {
-    title: "OWASP",
-    description: "Web uygulama güvenliği için en iyi uygulamalar ve kaynaklar",
-    url: "https://owasp.org",
-    category: "security",
-    icon: "🔒",
-  },
-  {
-    title: "Codecademy",
-    description: "İnteraktif programlama öğrenme platformu",
-    url: "https://www.codecademy.com",
-    category: "learning",
-    icon: "📚",
-  },
-  {
-    title: "freeCodeCamp",
-    description: "Ücretsiz kodlama eğitimi ve sertifikalar",
-    url: "https://www.freecodecamp.org",
-    category: "learning",
-    icon: "🎓",
-  },
-  {
-    title: "GitHub",
-    description: "Kod paylaşımı ve versiyon kontrol platformu",
-    url: "https://github.com",
-    category: "tools",
-    icon: "🐙",
-  },
-  {
-    title: "Stack Overflow",
-    description: "Programlama soruları ve cevapları için topluluk platformu",
-    url: "https://stackoverflow.com",
-    category: "tools",
-    icon: "💬",
-  },
-]

@@ -7,18 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        gray: {
-          50: '#F9FAFB',
-          100: '#F3F4F6',
-          500: '#6B7280',
-          600: '#4B5563',
-          800: '#1F2937',
-          900: '#111827',
-        },
+        paper: '#EFF2F2',
+        ink: '#16262C',
+        accent: '#0B7A6B',
+        muted: '#5A666C',
+        line: '#CFD8DA',
+        surface: '#FFFFFF',
       },
-      gridTemplateColumns: {
-        '13': 'repeat(13, minmax(0, 1fr))',
-      }
+      fontFamily: {
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        sans: ['"IBM Plex Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
     },
   },
   plugins: [

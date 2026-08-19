@@ -1,257 +1,270 @@
-﻿import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, MotionConfig } from 'framer-motion'
+import type { ReactNode } from 'react'
 import {
-  FaGithub,
-  FaLinkedin,
-  FaMapMarkerAlt,
-  FaInstagram,
-  FaEnvelope,
-  FaCheckCircle,
-  FaGraduationCap,
-  FaShieldAlt,
-  FaExternalLinkAlt,
-} from 'react-icons/fa'
-import {
-  SiReact, SiTypescript, SiTailwindcss, SiPython,
-  SiJavascript, SiHtml5, SiCss3, SiMicrosoftsqlserver,
-  SiCsharp, SiDotnet, SiGit, SiGithub, SiJupyter, SiLinux,
-} from 'react-icons/si'
-import { Link } from 'react-router-dom'
-import {
-  personal, about, skills,
-  experiences, educations, technologies,
+  personal, about, skills, experiences, educations, technologies,
 } from './data/portfolioData'
 
-const iconMap: Record<string, React.ElementType> = {
-  linux: SiLinux, python: SiPython, csharp: SiCsharp,
-  dotnet: SiDotnet, mssql: SiMicrosoftsqlserver, git: SiGit,
-  github: SiGithub, react: SiReact, typescript: SiTypescript,
-  tailwind: SiTailwindcss, javascript: SiJavascript,
-  html5: SiHtml5, css3: SiCss3, jupyter: SiJupyter,
+type Contact = { label: string; href: string; external: boolean }
+
+const contacts: Contact[] = [
+  { label: 'mrsayarr@protonmail.com', href: 'mailto:mrsayarr@protonmail.com', external: false },
+  { label: 'github.com/mrrsayarr', href: 'https://github.com/mrrsayarr', external: true },
+  { label: 'linkedin.com/in/muhammed-sayar', href: 'https://www.linkedin.com/in/muhammed-sayar/', external: true },
+  { label: 'instagram.com/mrrsayarr', href: 'https://instagram.com/mrrsayarr', external: true },
+]
+
+const row = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
 }
 
-const expColorMap = {
-  blue:    { text: 'text-blue-400',    bg: 'bg-blue-500/10',    border: 'border-blue-500/20'    },
-  emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
-}
-
-const eduColorMap = {
-  purple: { text: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-  gray:   { text: 'text-gray-400',   bg: 'bg-gray-800',      border: 'border-gray-700/50'   },
-}
-
-function App() {
+function Prompt({ text }: { text: string }) {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-blue-500 selection:text-white">
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-10">
-
-        {/* Hero Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300 relative overflow-hidden"
-        >
-          <div className="absolute -right-16 -top-16 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -left-16 -bottom-16 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="relative z-10 space-y-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-wide border border-blue-500/20 mb-3">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                {personal.statusBadge}
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">{personal.name}</h1>
-              <p className="text-xl sm:text-2xl font-medium text-blue-400/90">{personal.title}</p>
-            </div>
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-3xl">{personal.bio}</p>
-            <div className="flex flex-wrap gap-2.5 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-800/90 text-gray-200 text-xs font-medium border border-gray-700/60">
-                <FaGraduationCap className="text-purple-400" /> Bilgisayar Mühendisliği (Mezun)
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-800/90 text-gray-200 text-xs font-medium border border-gray-700/60">
-                <FaCheckCircle className="text-emerald-400" /> Askerlik Tamamlandı
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-800/90 text-gray-200 text-xs font-medium border border-gray-700/60">
-                <FaShieldAlt className="text-blue-400" /> Sistem & Siber Güvenlik
-              </span>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a href="#contact" className="bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 text-sm flex items-center gap-2">
-                <FaEnvelope className="w-4 h-4" /> İletişime Geç
-              </a>
-              <a href={personal.linkedinUrl} target="_blank" rel="noopener noreferrer" className="bg-gray-800 hover:bg-gray-700 text-gray-200 hover:text-white font-medium px-6 py-2.5 rounded-xl border border-gray-700 transition-all duration-200 text-sm flex items-center gap-2">
-                <FaLinkedin className="w-4 h-4 text-blue-400" /> LinkedIn Profilim
-              </a>
-              <Link to="/useful-links" className="bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white font-medium px-5 py-2.5 rounded-xl border border-gray-700/80 transition-all duration-200 text-sm flex items-center gap-2">
-                <FaExternalLinkAlt className="w-3.5 h-3.5 text-cyan-400" /> Faydalı Linkler
-              </Link>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* About Section */}
-        <motion.section
-          id="about"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300"
-        >
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            <span className="w-2 h-6 bg-blue-500 rounded-full" /> Hakkımda
-          </h2>
-          <div className="space-y-4 text-gray-300 text-base leading-relaxed">
-            {about.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
-          </div>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-gray-800/80">
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-gray-950/50 border border-gray-800/60">
-              <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400"><FaGraduationCap className="w-5 h-5" /></div>
-              <div><p className="text-xs text-gray-400 font-medium">Eğitim Durumu</p><p className="text-sm font-semibold text-white">Lisans Mezunu</p></div>
-            </div>
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-gray-950/50 border border-gray-800/60">
-              <div className="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><FaMapMarkerAlt className="w-5 h-5" /></div>
-              <div><p className="text-xs text-gray-400 font-medium">Konum</p><p className="text-sm font-semibold text-white">{personal.location}</p></div>
-            </div>
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-gray-950/50 border border-gray-800/60">
-              <div className="p-2.5 rounded-lg bg-purple-500/10 text-purple-400"><FaEnvelope className="w-5 h-5" /></div>
-              <div><p className="text-xs text-gray-400 font-medium">E-Posta</p><p className="text-sm font-semibold text-white truncate max-w-[160px]">{personal.email}</p></div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Technologies Section */}
-        <motion.section
-          id="technologies"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.15 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300"
-        >
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="w-2 h-6 bg-indigo-500 rounded-full" /> Teknolojiler & Araçlar
-          </h2>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3.5">
-            {technologies.map((tech) => {
-              const Icon = iconMap[tech.iconKey]
-              return (
-                <div key={tech.iconKey} className="group flex flex-col items-center justify-center p-3 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-blue-500/50 hover:bg-gray-800/50 transition-all duration-200">
-                  {Icon && <Icon className={`w-8 h-8 ${tech.colorClass} group-hover:scale-110 transition-transform`} />}
-                  <span className="text-xs text-gray-400 mt-2 font-medium">{tech.name}</span>
-                </div>
-              )
-            })}
-          </div>
-        </motion.section>
-
-        {/* Skills Section */}
-        <motion.section
-          id="skills"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300"
-        >
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="w-2 h-6 bg-cyan-500 rounded-full" /> Yetenekler & Odak Alanları
-          </h2>
-          <div className="flex flex-wrap gap-2.5">
-            {skills.map((skill) => (
-              <span key={skill} className="px-3.5 py-1.5 bg-gray-950 text-gray-200 rounded-xl border border-gray-800 text-sm font-medium hover:border-blue-500/40 hover:text-blue-400 transition-all">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Experience Section */}
-        <motion.section
-          id="experience"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300"
-        >
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="w-2 h-6 bg-emerald-500 rounded-full" /> İş & Staj Deneyimleri
-          </h2>
-          <div className="space-y-6">
-            {experiences.map((exp) => {
-              const colors = expColorMap[exp.color]
-              return (
-                <div key={exp.title} className="p-5 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-gray-700/80 transition-all">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                    <h3 className="font-semibold text-lg text-white">{exp.title}</h3>
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-md border w-fit ${colors.text} ${colors.bg} ${colors.border}`}>{exp.period}</span>
-                  </div>
-                  <p className="text-gray-300 text-sm">{exp.description}</p>
-                </div>
-              )
-            })}
-          </div>
-        </motion.section>
-
-        {/* Education Section */}
-        <motion.section
-          id="education"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="bg-gray-900/80 backdrop-blur-md rounded-2xl p-8 border border-gray-800 shadow-xl shadow-black/40 hover:border-gray-700/80 transition-all duration-300"
-        >
-          <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="w-2 h-6 bg-purple-500 rounded-full" /> Eğitim
-          </h2>
-          <div className="space-y-6">
-            {educations.map((edu) => {
-              const colors = eduColorMap[edu.color]
-              return (
-                <div key={edu.school} className="p-5 rounded-xl bg-gray-950/60 border border-gray-800/80 hover:border-gray-700/80 transition-all">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                    <h3 className="font-semibold text-lg text-white">{edu.school}</h3>
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-md border w-fit ${colors.text} ${colors.bg} ${colors.border}`}>{edu.period}</span>
-                  </div>
-                  <p className="text-gray-300 text-sm">{edu.department}</p>
-                </div>
-              )
-            })}
-          </div>
-        </motion.section>
-
-        {/* Contact Section */}
-        <section id="contact" className="pt-4">
-          <div className="flex justify-center items-center gap-4">
-            <a href={personal.githubUrl} target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105" aria-label="GitHub">
-              <FaGithub className="w-6 h-6" />
-            </a>
-            <a href={personal.linkedinUrl} target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105" aria-label="LinkedIn">
-              <FaLinkedin className="w-6 h-6 text-blue-400" />
-            </a>
-            <a href={personal.instagramUrl} target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105" aria-label="Instagram">
-              <FaInstagram className="w-6 h-6 text-pink-400" />
-            </a>
-            <a href={`mailto:${personal.email}`} className="p-3 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white rounded-xl border border-gray-800 transition-all duration-200 hover:scale-105" aria-label="Email">
-              <FaEnvelope className="w-6 h-6 text-purple-400" />
-            </a>
-          </div>
-        </section>
-
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-800/80 bg-gray-950 py-8 px-4 mt-12 text-center sm:text-left">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} {personal.name}. Tüm hakları saklıdır.</p>
-          <div className="flex items-center gap-3">
-            <a href={personal.githubUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5">
-              <FaGithub className="w-4 h-4" /> {personal.githubUsername}
-            </a>
-            <span className="text-gray-700">•</span>
-            <img src={`https://visitor-badge.laobi.icu/badge?page_id=${personal.githubUsername}.portfolio`} alt="Ziyaretçi Sayısı" className="dark:invert opacity-80" />
-          </div>
-        </div>
-      </footer>
-    </div>
+    <p className="font-mono text-sm text-ink sm:text-[15px]">
+      <span className="mr-2 text-accent">$</span>
+      {text}
+    </p>
   )
 }
 
-export default App
+function SystemBar() {
+  return (
+    <header className="sticky top-0 z-20 border-b border-line bg-paper/85 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-3 font-mono text-xs text-muted sm:px-6 sm:text-[13px]">
+        <span className="tracking-tight">
+          <span className="text-accent">sayar@net-hub</span>
+          <span>: ~</span>
+        </span>
+        <span className="hidden sm:inline">istanbul · tr</span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
+          online
+        </span>
+      </div>
+    </header>
+  )
+}
+
+function Hero() {
+  return (
+    <motion.section
+      initial="hidden"
+      animate="show"
+      transition={{ staggerChildren: 0.08, delayChildren: 0.05 }}
+      className="border-b border-line pb-12 sm:pb-16"
+    >
+      <motion.p variants={row} className="mb-6 font-mono text-sm text-muted">
+        <span className="mr-2 text-accent">$</span>
+        ~/whoami
+        <span
+          className="animate-cursor ml-1.5 inline-block h-4 w-2 translate-y-[3px] bg-accent"
+          aria-hidden
+        />
+      </motion.p>
+
+      <motion.h1
+        variants={row}
+        className="font-mono text-[clamp(2.6rem,10vw,4.9rem)] font-bold leading-[0.95] tracking-tight text-ink"
+      >
+        MUHAMMED<span className="text-accent">.</span>
+        <br />
+        SAYAR
+      </motion.h1>
+
+      <motion.p variants={row} className="mt-5 max-w-xl font-mono text-base text-muted sm:text-lg">
+        sistem &amp; ağ mühendisi
+        <span className="text-accent"> · </span>
+        siber güvenlik
+      </motion.p>
+
+      <motion.div variants={row} className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
+        <span className="inline-flex w-fit items-center gap-2.5 border border-line bg-surface px-3 py-1.5 font-mono text-[13px] text-ink">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
+          aktif iş arayışında
+        </span>
+        <span className="inline-flex w-fit items-center gap-2.5 border border-line bg-surface px-3 py-1.5 font-mono text-[13px] text-muted">
+          <span className="h-2 w-2 rounded-full border border-muted" aria-hidden />
+          {personal.location}
+        </span>
+      </motion.div>
+    </motion.section>
+  )
+}
+
+function Section({ command, children }: { command: string; children: ReactNode }) {
+  return (
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-70px' }}
+      transition={{ staggerChildren: 0.06 }}
+      className="mt-14 sm:mt-16"
+    >
+      <motion.div variants={row} className="mb-3 flex items-baseline gap-3">
+        <Prompt text={command} />
+        <span className="hidden flex-1 border-b border-dotted border-line sm:block" aria-hidden />
+      </motion.div>
+      <motion.div variants={row} className="border border-line bg-surface p-5 sm:p-7">
+        {children}
+      </motion.div>
+    </motion.section>
+  )
+}
+
+function About() {
+  return (
+    <Section command="cat about.log">
+      <div className="space-y-4 text-[15px] leading-relaxed text-ink/85 sm:text-base">
+        {about.map((p, i) => (
+          <p key={i}>
+            <span className="mr-2 select-none font-mono text-accent">›</span>
+            {p}
+          </p>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+function Stack() {
+  return (
+    <Section command="cat stack.log">
+      <ul className="grid grid-cols-2 gap-x-8 gap-y-3 font-mono text-sm sm:grid-cols-3">
+        {technologies.map((t) => (
+          <li key={t.name} className="flex items-center gap-2.5 text-ink/85">
+            <span className={`text-base leading-none ${t.colorClass}`}>▮</span>
+            {t.name}
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}
+function Skills() {
+  return (
+    <Section command="ls skills/">
+      <ul className="grid grid-cols-1 gap-x-8 gap-y-2.5 font-mono text-sm sm:grid-cols-2">
+        {skills.map((s) => (
+          <li key={s} className="flex items-baseline gap-2.5 text-ink/85">
+            <span className="select-none text-accent">▸</span>
+            {s}
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}
+
+function LogEntry({
+  period,
+  title,
+  detail,
+}: {
+  period: string
+  title: string
+  detail: string
+}) {
+  return (
+    <li className="flex h-full flex-col border-l-2 border-accent bg-paper/50 px-5 py-5">
+      <p className="font-mono text-xs text-accent">{period}</p>
+      <h3 className="mt-3 font-mono font-semibold text-ink">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{detail}</p>
+    </li>
+  )
+}
+
+function Experience() {
+  return (
+    <Section command="cat experience.log">
+      <ul className="grid gap-4">
+        {experiences.map((e) => (
+          <LogEntry
+            key={e.title}
+            period={e.period}
+            title={e.title}
+            detail={e.description}
+          />
+        ))}
+      </ul>
+    </Section>
+  )
+}
+
+function Education() {
+  return (
+    <Section command="cat education.log">
+      <ul className="grid gap-4">
+        {educations.map((e) => (
+          <LogEntry
+            key={e.school}
+            period={e.period}
+            title={e.school}
+            detail={e.department}
+          />
+        ))}
+      </ul>
+    </Section>
+  )
+}
+
+function Contact() {
+  return (
+    <Section command="net · iletişim">
+      <ul className="font-mono text-sm sm:text-[15px]">
+        {contacts.map((c) => (
+          <li key={c.label} className="border-b border-line py-3.5 first:pt-0 last:border-b-0 last:pb-0">
+            <a
+              href={c.href}
+              target={c.external ? '_blank' : undefined}
+              rel={c.external ? 'noopener noreferrer' : undefined}
+              className="group inline-flex items-center gap-3 text-ink underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              <span className="w-3 select-none text-accent transition-transform group-hover:translate-x-1">
+                ›
+              </span>
+              {c.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-5 font-mono text-[13px] text-muted">
+        <span className="mr-2 text-accent">$</span>
+        tüm yollar açık — işbirliği ve görüşlere hazırım.
+      </p>
+    </Section>
+  )
+}
+
+function Foot() {
+  return (
+    <footer className="mt-16 border-t border-line py-8">
+      <div className="flex flex-col gap-2 font-mono text-[13px] text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {personal.name}</p>
+        <p className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-accent" aria-hidden />
+          uptime: aktif çalışıyor
+        </p>
+      </div>
+    </footer>
+  )
+}
+
+export default function App() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-paper font-sans text-ink antialiased">
+        <SystemBar />
+        <main id="main" className="mx-auto max-w-3xl px-5 pb-8 pt-12 sm:px-6 sm:pt-16">
+          <Hero />
+          <About />
+          <Stack />
+          <Skills />
+          <Experience />
+          <Education />
+          <Contact />
+          <Foot />
+        </main>
+      </div>
+    </MotionConfig>
+  )
+}
