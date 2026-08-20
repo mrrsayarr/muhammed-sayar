@@ -13,7 +13,7 @@ export const personal = {
   linkedinUrl: "https://www.linkedin.com/in/muhammed-sayar/",
   instagramUrl: "https://instagram.com/mrrsayarr",
   statusBadge: "Aktif İş Arayışında",
-  bio: "GNU/Linux sistem yönetimi, Siber Güvenlik ve Ağ (Network) teknolojilerine odaklanmış Bilgisayar Mühendisiyim. Askerlik hizmetimi tamamladım; Sistem, Network veya Siber Güvenlik pozisyonlarında sorumluluk almaya hazırım.",
+  bio: "Bilgisayar Mühendisliği yeni mezunuyum. GNU/Linux, Ağ (Network) ve Siber Güvenlik alanlarında kendimi geliştiriyorum. Güncel teknolojileri iş süreçlerine verimli şekilde entegre ederek kaliteli işler ortaya koymayı ve sürekli gelişmeyi hedefliyorum.",
 }
 
 // ─── Hakkımda Metni ─────────────────────────────────────────
@@ -34,6 +34,7 @@ export const skills: string[] = [
   "C# / ASP.NET MVC",
   "Web Geliştirme",
   "Teknik Araştırma & Problem Çözme",
+  "İngilizce (Başlangıç)",
 ]
 
 // ─── İş & Staj Deneyimleri ──────────────────────────────────
@@ -45,6 +46,13 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
+  {
+    title: "Caffè Nero - Barista",
+    period: "Mayıs 2025 - Ocak 2026",
+    description:
+      "Yoğun çalışma temposunda müşteri hizmetleri, kasa ve günlük operasyon süreçlerinde görev aldım.",
+    color: "emerald",
+  },
   {
     title: "WGuard - Sistem Mühendisi Stajyeri",
     period: "Temmuz 2023 - Ocak 2024",

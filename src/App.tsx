@@ -77,6 +77,10 @@ function Hero() {
         siber güvenlik
       </motion.p>
 
+      <motion.p variants={row} className="mt-5 max-w-xl text-[15px] leading-relaxed text-ink/85 sm:text-base">
+        {personal.bio}
+      </motion.p>
+
       <motion.div variants={row} className="mt-7 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
         <span className="inline-flex w-fit items-center gap-2.5 border border-line bg-surface px-3 py-1.5 font-mono text-[13px] text-ink">
           <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
